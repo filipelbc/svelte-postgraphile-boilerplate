@@ -1,0 +1,5 @@
+#+TITLE: Svelte App
+
+* References
+
+This is based on [[https://github.com/sveltejs/template]].
