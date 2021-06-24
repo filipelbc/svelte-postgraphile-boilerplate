@@ -43,7 +43,16 @@ export default {
   plugins: [
     svelte({
       preprocess: sveltePreprocess({
-        sourceMap: !production
+        sourceMap: !production,
+        scss: {
+          includePaths: [
+            'node_modules',
+            'src'
+          ]
+        },
+        postcss: {
+          plugins: []
+        }
       }),
       compilerOptions: {
         // enable run-time checks when not in production
