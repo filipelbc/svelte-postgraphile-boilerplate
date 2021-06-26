@@ -1,0 +1,4 @@
+#+TITLE: Svelte + PostGraphile
+
+- [[./client/README.org][Svelte App]]
+- [[./server/README.org][PostGraphile Server]]

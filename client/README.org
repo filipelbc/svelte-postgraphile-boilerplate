@@ -2,4 +2,7 @@
 
 * References
 
-This is based on [[https://github.com/sveltejs/template]].
+- [[https://svelte.dev/docs][Svelte]] (using the [[https://github.com/sveltejs/template][basic template]])
+- Typescript
+- [[https://bulma.io/documentation/][Bulma]]
+- [[https://github.com/prisma-labs/graphql-request][GraphQL Request]]
