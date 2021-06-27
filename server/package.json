@@ -1,0 +1,19 @@
+{
+  "name": "postgraphile-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --require dotenv/config src/main.ts",
+    "start": "ts-node src/main.ts"
+  },
+  "dependencies": {
+    "pg": "^8.6.0",
+    "postgraphile": "^4.12.3",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "ts-node-dev": "^1.1.6"
+  }
+}
