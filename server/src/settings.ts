@@ -1,11 +1,13 @@
 import { Pool } from 'pg';
 import { PostGraphileOptions, makePluginHook, makeExtendSchemaPlugin, gql } from 'postgraphile';
 
+import inflectors from './inflectors';
+
 export const database = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-export const schemas = ['public'];
+export const schemas = ['api'];
 
 export const options: PostGraphileOptions = {
   watchPg: true,
@@ -19,6 +21,12 @@ export const options: PostGraphileOptions = {
   legacyRelations: 'omit',
   exportGqlSchemaPath: `${__dirname}/../schema.graphql`,
   sortExport: true,
+  appendPlugins: [
+    inflectors,
+  ],
+  pgDefaultRole: 'tokenless',
+  jwtSecret: process.env.JWT_SECRET,
+  jwtPgTypeIdentifier: 'api.jwt_access_token',
 };
 
 export const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;

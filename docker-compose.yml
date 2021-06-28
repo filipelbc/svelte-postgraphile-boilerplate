@@ -5,9 +5,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_PASSWORD=dbpassword
-      - POSTGRES_USER=dbuser
-      - POSTGRES_DB=dbname
+      - POSTGRES_PASSWORD=app_owner_password
+      - POSTGRES_USER=app_owner
+      - POSTGRES_DB=app
     tmpfs:
       - /var/lib/postgresql/data
     #command: ["postgres", "-c", "log_statement=all"]

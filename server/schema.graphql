@@ -1,3 +1,58 @@
+"""
+A JSON Web Token defined by [RFC 7519](https://tools.ietf.org/html/rfc7519)
+which securely represents claims between two parties.
+"""
+scalar JwtAccessToken
+
+type JwtTokenPair {
+  accessToken: JwtAccessToken
+  refreshToken: String
+}
+
+"""All input for the `loginUser` mutation."""
+input LoginUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  name: String
+  password: String
+}
+
+"""The output of our `loginUser` mutation."""
+type LoginUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  jwtTokenPair: JwtTokenPair
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  loginUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: LoginUserInput!
+  ): LoginUserPayload
+  registerUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: RegisterUserInput!
+  ): RegisterUserPayload
+}
+
 """An object with a globally unique `ID`."""
 interface Node {
   """
@@ -24,4 +79,29 @@ type Query implements Node {
   which can only query top level fields if they are in a particular form.
   """
   query: Query!
+}
+
+"""All input for the `registerUser` mutation."""
+input RegisterUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  name: String
+  password: String
+}
+
+"""The output of our `registerUser` mutation."""
+type RegisterUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
