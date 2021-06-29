@@ -24,7 +24,7 @@ export const options: PostGraphileOptions = {
   appendPlugins: [
     inflectors,
   ],
-  pgDefaultRole: 'tokenless',
+  pgDefaultRole: 'anonymous_user',
   jwtSecret: process.env.JWT_SECRET,
   jwtPgTypeIdentifier: 'api.jwt_access_token',
 };
