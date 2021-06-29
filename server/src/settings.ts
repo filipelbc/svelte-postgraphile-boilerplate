@@ -1,5 +1,6 @@
 import { Pool } from 'pg';
 import { PostGraphileOptions, makePluginHook, makeExtendSchemaPlugin, gql } from 'postgraphile';
+import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
 
 import inflectors from './inflectors';
 
@@ -22,6 +23,7 @@ export const options: PostGraphileOptions = {
   exportGqlSchemaPath: `${__dirname}/../schema.graphql`,
   sortExport: true,
   appendPlugins: [
+    PgSimplifyInflectorPlugin,
     inflectors,
   ],
   pgDefaultRole: 'anonymous_user',
