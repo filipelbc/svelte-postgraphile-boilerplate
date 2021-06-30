@@ -1,5 +1,5 @@
 import { Pool } from 'pg';
-import { PostGraphileOptions, makePluginHook, makeExtendSchemaPlugin, gql } from 'postgraphile';
+import { PostGraphileOptions } from 'postgraphile';
 import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
 
 import inflectors from './inflectors';
