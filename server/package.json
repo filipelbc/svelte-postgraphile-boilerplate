@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --require dotenv/config src/main.ts",
+    "gen-schema": "ts-node  --require dotenv/config src/generate-schema.ts",
     "start": "ts-node src/main.ts"
   },
   "dependencies": {
