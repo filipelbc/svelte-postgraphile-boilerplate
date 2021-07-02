@@ -1,0 +1,8 @@
+mutation createUser($name: String!, $password: String!) {
+  createUser(input: { name: $name, password: $password }) {
+    jwtTokenPair {
+      accessToken
+      refreshToken
+    }
+  }
+}
