@@ -26,6 +26,9 @@ export const options: PostGraphileOptions = {
     PgSimplifyInflectorPlugin,
     inflectors,
   ],
+  graphileBuildOptions: {
+    pgStrictFunctions: true,
+  },
   pgDefaultRole: 'anonymous_user',
   jwtSecret: process.env.JWT_SECRET,
   jwtPgTypeIdentifier: 'api.jwt_access_token',
