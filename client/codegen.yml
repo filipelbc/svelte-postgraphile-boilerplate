@@ -9,3 +9,4 @@ generates:
       - typescript-graphql-request
     config:
       useTypeImports: true
+      gqlImport: graphql-request#gql
