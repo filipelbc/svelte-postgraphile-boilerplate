@@ -22,6 +22,8 @@
     "graphql": "^15.5.1",
     "graphql-request": "^3.4.0",
     "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "prettier-plugin-svelte": "^2.3.1",
     "rollup": "^2.52.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-dev": "^1.1.3",
