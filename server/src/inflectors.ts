@@ -1,8 +1,8 @@
 import { makeAddInflectorsPlugin } from 'graphile-utils';
 
 interface Inflection {
-  coerceToGraphQLName: (a: string) => string,
-  camelCase: (a: string) => string,
+  coerceToGraphQLName: (a: string) => string;
+  camelCase: (a: string) => string;
 }
 
 export default makeAddInflectorsPlugin(

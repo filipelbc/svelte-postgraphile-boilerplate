@@ -22,10 +22,7 @@ export const options: PostGraphileOptions = {
   legacyRelations: 'omit',
   exportGqlSchemaPath: `${__dirname}/../schema.graphql`,
   sortExport: true,
-  appendPlugins: [
-    PgSimplifyInflectorPlugin,
-    inflectors,
-  ],
+  appendPlugins: [PgSimplifyInflectorPlugin, inflectors],
   graphileBuildOptions: {
     pgStrictFunctions: true,
   },
@@ -34,4 +31,6 @@ export const options: PostGraphileOptions = {
   jwtPgTypeIdentifier: 'api.jwt_access_token',
 };
 
-export const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+export const port: number = process.env.PORT
+  ? parseInt(process.env.PORT, 10)
+  : 3000;
