@@ -1,0 +1,54 @@
+image: registry.gitlab.com/filipelbc/svelte-postgraphile-boilerplate/dev
+
+variables:
+  POSTGRES_PASSWORD: app_owner_password
+  POSTGRES_USER: app_owner
+  POSTGRES_DB: app
+
+stages:
+  - lint
+  - test
+  - build
+
+lint-client:
+  stage: lint
+  script:
+    - cd ./client && cp -r /cache/client/node_modules .
+    - npm install
+    - ../scripts/assert-no-diffs.sh ./package-lock.json
+    - npx prettier --check .
+    - npm run gen-graphql-sdk
+    - npm run check
+  artifacts:
+    paths:
+      - ./client/src/services/api/graphql-sdk.ts
+
+build-client:
+  stage: build
+  script:
+    - cd ./client && cp -r /cache/client/node_modules .
+    - npm run build
+  dependencies:
+    - lint-client
+  artifacts:
+    paths:
+      - ./client/public/build/
+
+lint-server:
+  stage: lint
+  script:
+    - cd ./server && cp -r /cache/server/node_modules .
+    - npm install
+    - ../scripts/assert-no-diffs.sh ./package-lock.json
+    - npx prettier --check .
+
+test-api:
+  services:
+    - name: registry.gitlab.com/filipelbc/dotnet-boilerplate/postgres
+      alias: postgres
+  stage: test
+  script:
+    - ./scripts/install-schema.sh
+    - cd ./server && cp -r /cache/server/node_modules .
+    - npm run gen-schema
+    - ../scripts/assert-no-diffs.sh ./schema.graphql
