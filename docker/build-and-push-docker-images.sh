@@ -5,11 +5,10 @@ set -ex
 REGISTRY_ROOT=registry.gitlab.com/filipelbc/svelte-postgraphile-boilerplate
 
 # Build "dev" docker image
-docker build -t $REGISTRY_ROOT/dev:latest .
+docker build -t $REGISTRY_ROOT/dev:latest -f ./docker/Dockerfile.dev .
 
-# Also store PostgreSQL image in the Gitlab Registry
-docker pull postgres:13
-docker tag postgres:13 $REGISTRY_ROOT/postgres:latest
+# Build "postgres" docker image
+docker build -t $REGISTRY_ROOT/postgres:latest -f ./docker/Dockerfile.postgres .
 
 # Upload to Gitlab CI
 docker login registry.gitlab.com
