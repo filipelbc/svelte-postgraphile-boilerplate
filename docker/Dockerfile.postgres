@@ -1,1 +1,22 @@
 FROM postgres:13
+
+RUN apt-get update -y \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        git \
+        postgresql-server-dev-13 \
+        libicu-dev \
+    && cd tmp \
+    && git clone https://github.com/okbob/plpgsql_check.git \
+    && cd plpgsql_check \
+    && make clean \
+    && make install \
+    && apt-get clean \
+    && apt-get remove -y \
+        build-essential \
+        ca-certificates \
+        git \
+        postgresql-server-dev-13 \
+    && apt-get autoremove -y \
+    && rm -rf /tmp/plpgsql_check /var/lib/apt/lists/* /var/tmp/*
