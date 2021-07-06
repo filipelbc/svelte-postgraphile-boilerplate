@@ -1,7 +1,7 @@
 services:
 
   postgres:
-    image: postgres:13
+    image: registry.gitlab.com/filipelbc/svelte-postgraphile-boilerplate/postgres:latest
     ports:
       - 5432:5432
     environment:
