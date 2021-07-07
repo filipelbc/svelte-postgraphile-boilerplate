@@ -1,19 +1,21 @@
-create extension plpgsql_check;
+set client_min_messages to warning;
+
+create extension if not exists plpgsql_check;
 
 -- checks all functions and trigger functions with defined triggers
 
 select
-    (r).functionid::regprocedure,
-    (r).lineno,
-    (r).statement,
-    (r).sqlstate,
-    (r).message,
-    (r).detail,
-    (r).hint,
-    (r).level,
-    (r).position,
-    (r).query,
-    (r).context
+    (r).functionid::regprocedure as "Function",
+    (r).lineno                   as "Line Num",
+    (r).statement                as "Statement",
+    (r).sqlstate                 as "Sql State",
+    (r).message                  as "Message",
+    (r).detail                   as "Detail",
+    (r).hint                     as "Hint",
+    (r).level                    as "Level",
+    (r).position                 as "Position",
+    (r).query                    as "Query",
+    (r).context                  as "Context"
 from (
     select
         plpgsql_check_function_tb(pg_proc.oid, coalesce(pg_trigger.tgrelid, 0)) as r

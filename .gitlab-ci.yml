@@ -48,7 +48,10 @@ test-api:
       alias: postgres
   stage: test
   script:
-    - ./scripts/install-schema.sh
+    - cd ./sql
+    - ./install.sh
+    - ./check-plpgsql.sh
+    - cd ..
     - cd ./server && cp -r /cache/server/node_modules .
     - npm run gen-schema
     - ../scripts/assert-no-diffs.sh ./schema.graphql
