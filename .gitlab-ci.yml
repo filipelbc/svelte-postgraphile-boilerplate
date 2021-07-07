@@ -1,4 +1,4 @@
-image: registry.gitlab.com/filipelbc/svelte-postgraphile-boilerplate/dev
+image: registry.gitlab.com/filipelbc/svelte-postgraphile-boilerplate/dev:latest
 
 variables:
   POSTGRES_PASSWORD: app_owner_password
@@ -44,7 +44,7 @@ lint-server:
 
 test-api:
   services:
-    - name: registry.gitlab.com/filipelbc/dotnet-boilerplate/postgres
+    - name: registry.gitlab.com/filipelbc/dotnet-boilerplate/postgres:latest
       alias: postgres
   stage: test
   script:
