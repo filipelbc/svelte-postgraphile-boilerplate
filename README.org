@@ -1,4 +1,42 @@
-#+TITLE: Svelte + PostGraphile
+#+TITLE: Svelte + PostGraphile Boilerplate
 
-- [[./client/README.org][Svelte App]]
-- [[./server/README.org][PostGraphile Server]]
+What's in here?
+
+* Web App
+
+- ✔️ Svelte
+- ✔️ Bulma
+- ✔️ Typescript
+- ✔️ GraphQL Codegen
+
+Details in [[./client/README.org]].
+
+* Web Server
+
+- ✔️ PostGraphile as library
+- ✔️ Typescript
+
+Details in [[./server/README.org]].
+
+* Database
+
+- ✔️ PostgreSQL
+- ✔️ [[https://github.com/okbob/plpgsql_check][plpgsql_check]]
+
+Details in [[./sql/README.org]].
+
+* Background Tasks
+
+- ⬜ Graphile Worker
+- ⬜ Typescript
+
+Details in [[./tasks/README.org]].
+
+* CI
+
+- ✔️ Gitlab CI
+- ✔️ Custom docker images on Gitlab Repository
+- ✔️ Check GraphQL schema is up-to-date
+- ✔️ Check code is formatted using Prettier
+- ✔️ Check code builds
+- ⬜ Check PL/pgSQL code
