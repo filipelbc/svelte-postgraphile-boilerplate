@@ -18,6 +18,7 @@ create user graphile_worker with
 
 create schema api;
 create schema auth;
+create schema tasks;
 
 -- Restrict by Default
 
@@ -104,6 +105,24 @@ begin
 
 end
 $$;
+
+-- Triggers
+
+create function tasks.say_hello()
+returns trigger
+language plpgsql
+security definer
+as $$
+begin
+    perform graphile_worker.add_job('say_hello', json_build_object('id', new.id));
+    return new;
+end;
+$$;
+
+create trigger _00_say_hello
+    after insert
+    on api.users
+    for each row execute procedure tasks.say_hello();
 
 -- API Functions
 
