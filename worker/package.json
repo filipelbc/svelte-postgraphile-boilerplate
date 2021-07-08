@@ -1,0 +1,21 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node-dev --respawn --require dotenv/config src/main.ts",
+    "start": "ts-node src/main.ts",
+    "migrate": "ts-node --require dotenv/config src/migrate.ts"
+  },
+  "dependencies": {
+    "graphile-worker": "^0.11.3",
+    "pg": "^8.6.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "prettier": "^2.3.2",
+    "ts-node-dev": "^1.1.6"
+  }
+}

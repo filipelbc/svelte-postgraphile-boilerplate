@@ -8,6 +8,12 @@ create user postgraphile with
     superuser -- NOTE: only needed for `watchPg: true`
     password 'postgraphile_password';
 
+-- Graphile Worker User
+
+create user graphile_worker with
+    superuser -- NOTE: only needed for migrations
+    password 'graphile_worker_password';
+
 -- Schemas
 
 create schema api;
