@@ -10,8 +10,8 @@ async function main() {
     concurrency,
     pollInterval,
     taskList: {
-      hello: async (payload: any, helpers) => {
-        await tasks.hello(payload, helpers);
+      say_hello: async (payload: any, helpers) => {
+        await tasks.say_hello(payload, helpers);
       },
     },
   });
