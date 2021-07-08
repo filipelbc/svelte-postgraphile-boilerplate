@@ -30,7 +30,7 @@ Details in [[./sql/README.org]].
 - ⬜ Graphile Worker
 - ⬜ Typescript
 
-Details in [[./tasks/README.org]].
+Details in [[./worker/README.org]].
 
 * CI
 
