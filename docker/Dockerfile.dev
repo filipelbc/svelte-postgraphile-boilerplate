@@ -25,6 +25,9 @@ RUN wget --quiet -O - "https://deb.nodesource.com/setup_14.x" | bash - \
 COPY ./server/package* /cache/server/
 RUN cd /cache/server && npm ci
 
+COPY ./worker/package* /cache/worker/
+RUN cd /cache/worker && npm ci
+
 COPY ./client/package* /cache/client/
 RUN cd /cache/client && npm ci
 

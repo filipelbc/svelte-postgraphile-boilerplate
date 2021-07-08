@@ -42,6 +42,14 @@ lint-server:
     - ../scripts/assert-no-diffs.sh ./package-lock.json
     - npx prettier --check .
 
+lint-worker:
+  stage: lint
+  script:
+    - cd ./worker && cp -r /cache/worker/node_modules .
+    - npm install
+    - ../scripts/assert-no-diffs.sh ./package-lock.json
+    - npx prettier --check .
+
 test-api:
   services:
     - name: registry.gitlab.com/filipelbc/svelte-postgraphile-boilerplate/postgres:latest
@@ -50,8 +58,10 @@ test-api:
   script:
     - cd ./sql
     - ./install.sh
+    - cd ../worker && cp -r /cache/worker/node_modules .
+    - npm run migrate
+    - cd ../sql
     - ./check-plpgsql.sh
-    - cd ..
-    - cd ./server && cp -r /cache/server/node_modules .
+    - cd ../server && cp -r /cache/server/node_modules .
     - npm run gen-schema
     - ../scripts/assert-no-diffs.sh ./schema.graphql
