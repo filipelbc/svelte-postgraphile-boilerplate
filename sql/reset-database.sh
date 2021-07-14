@@ -2,11 +2,11 @@
 
 set -e
 
-db_name=${POSTGRES_DB:-app}
+. ./conn-string.sh
 
 ./psql.sh -d postgres \
-  -c "drop database if exists $db_name;" \
-  -c "create database $db_name;"
+  -c "drop database if exists $POSTGRES_DB;" \
+  -c "create database $POSTGRES_DB;"
 
 for f in $(find ./schema -name '*.sql' | sort)
 do

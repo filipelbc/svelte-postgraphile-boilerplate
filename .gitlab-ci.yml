@@ -57,7 +57,7 @@ test-api:
   stage: test
   script:
     - cd ./sql
-    - ./install.sh
+    - ./install-schema.sh
     - cd ../worker && cp -r /cache/worker/node_modules .
     - npm run migrate
     - cd ../sql
