@@ -2,4 +2,4 @@
 
 * References
 
-- [[https://www.graphile.org/postgraphile/introduction/][PostGraphile]]
+- [[https://www.graphile.org/postgraphile/usage-library/][PostGraphile]]

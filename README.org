@@ -13,7 +13,7 @@ Details in [[./client/README.org]].
 
 * Web Server
 
-- ✔️ PostGraphile as library
+- ✔️ [[https://www.graphile.org/postgraphile/usage-library/][PostGraphile]] as library
 - ✔️ Typescript
 
 Details in [[./server/README.org]].
@@ -27,8 +27,8 @@ Details in [[./sql/README.org]].
 
 * Background Tasks
 
-- ⬜ Graphile Worker
-- ⬜ Typescript
+- ✔️ [[https://github.com/graphile/worker][Graphile Worker]]
+- ✔️ Typescript
 
 Details in [[./worker/README.org]].
 
@@ -39,4 +39,4 @@ Details in [[./worker/README.org]].
 - ✔️ Check GraphQL schema is up-to-date
 - ✔️ Check code is formatted using Prettier
 - ✔️ Check code builds
-- ⬜ Check PL/pgSQL code
+- ✔️ Check PL/pgSQL code

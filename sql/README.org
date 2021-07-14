@@ -1,0 +1,13 @@
+#+TITLE: Database
+
+* Developer Guide
+
+1. Start the development database using the reference [[../docker-compose.yml]]
+
+2. Use the [[./install-schema.sh]] script to install the schema
+
+3. Use the [[./check-plpgsql.sh]] script to check (lint) the PL/pgSQL functions
+
+* References
+
+- [[https://github.com/okbob/plpgsql_check][plpgsql_check]]
